@@ -1,0 +1,84 @@
+---
+import '../styles/globals.css';
+import Layout from "../layouts/Layout.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import CTASection from "../components/CTASection.astro";
+
+const testimonials = [
+  {
+    name: "María R.",
+    role: "Familiar de paciente",
+    quote: "La enfermera fue muy humana y cuidadosa. Nos dio paz y claridad en todo momento.",
+    image: "/images/patient-1.jpg",
+    rating: 5,
+  },
+  {
+    name: "Carlos P.",
+    role: "Paciente",
+    quote: "Excelente trato y puntualidad. Me ayudaron con el postoperatorio sin complicaciones.",
+    image: "/images/patient-2.jpg",
+    rating: 5,
+  },
+  {
+    name: "Lucía G.",
+    role: "Paciente",
+    quote: "Se nota la experiencia. Explican todo con paciencia y profesionalismo.",
+    image: "/images/patient-3.jpg",
+    rating: 5,
+  },
+  {
+    name: "Jorge M.",
+    role: "Familiar de paciente",
+    quote: "Comunicación clara con la familia y seguimiento constante. Muy recomendables.",
+    image: "/images/patient-1.jpg",
+    rating: 5,
+  },
+  {
+    name: "Elena S.",
+    role: "Paciente",
+    quote: "Me sentí acompañada y segura durante toda la recuperación.",
+    image: "/images/patient-2.jpg",
+    rating: 5,
+  },
+];
+---
+
+<Layout title="Testimonios | NurseCare" description="Historias de éxito y confianza.">
+  <!-- HERO -->
+  <section class="container-page py-14 sm:py-16">
+    <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
+      <h1 class="text-3xl font-semibold text-slate-900">Historias de Éxito y Confianza</h1>
+      <p class="mt-3 max-w-2xl text-sm text-slate-600">
+        Personas y familias que recibieron cuidado profesional en casa.
+      </p>
+    </div>
+  </section>
+
+  <!-- LISTADO -->
+  <section class="container-page pb-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {testimonials.map((t) => (
+        <TestimonialCard {...t} />
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA DEJAR TESTIMONIO (opcional) -->
+  <section class="container-page pb-16">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">¿Quieres dejar tu testimonio?</h2>
+          <p class="mt-1 text-sm text-slate-600">
+            Tu experiencia ayuda a otras familias a tomar una buena decisión.
+          </p>
+        </div>
+        <a href="/contact" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700">
+          Dejar un Testimonio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</Layout>

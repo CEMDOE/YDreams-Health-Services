@@ -1,0 +1,38 @@
+---
+const {
+  name,
+  quote,
+  role = "Paciente",
+  image = "/images/patient-1.jpg",
+  rating = 5,
+} = Astro.props;
+
+const stars = Array.from({ length: 5 }, (_, i) => i < rating);
+---
+
+<figure class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+  <div class="flex items-center gap-4">
+    <img
+      src={image}
+      alt={`Foto de ${name}`}
+      class="h-12 w-12 rounded-xl object-cover ring-1 ring-slate-200"
+      loading="lazy"
+    />
+    <div class="min-w-0">
+      <figcaption class="text-sm font-semibold text-slate-900">{name}</figcaption>
+      <p class="text-xs text-slate-500">{role}</p>
+    </div>
+  </div>
+
+  <div class="mt-4 flex items-center gap-1" aria-label={`Calificación: ${rating} de 5`}>
+    {stars.map((filled) => (
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" class={filled ? "text-brand-600" : "text-slate-300"}>
+        <path fill="currentColor" d="M12 17.3l-6.2 3.7 1.7-7.1L2 9.2l7.2-.6L12 2l2.8 6.6 7.2.6-5.5 4.7 1.7 7.1z"/>
+      </svg>
+    ))}
+  </div>
+
+  <blockquote class="mt-4 text-sm leading-relaxed text-slate-700">
+    “{quote}”
+  </blockquote>
+</figure>

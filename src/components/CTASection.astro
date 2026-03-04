@@ -1,0 +1,25 @@
+---
+const {
+  title = "¿Listo para recibir atención profesional en casa?",
+  subtitle = "Cuéntanos tu caso y te orientamos sin costo.",
+  ctaLabel = "Contáctanos Hoy",
+  href = "/contact",
+} = Astro.props;
+---
+
+<section class="container-page py-10">
+  <div class="rounded-2xl bg-gradient-to-r from-brand-600 to-mint-600 p-8 shadow-soft sm:p-10">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div class="max-w-2xl">
+        <h2 class="text-xl font-semibold text-white sm:text-2xl">{title}</h2>
+        <p class="mt-2 text-sm text-white/90">{subtitle}</p>
+      </div>
+      <a
+        href={href}
+        class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-soft hover:bg-slate-50"
+      >
+        {ctaLabel}
+      </a>
+    </div>
+  </div>
+</section>

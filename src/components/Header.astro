@@ -1,0 +1,70 @@
+---
+const nav = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/services" },
+  { label: "Sobre Nosotros", href: "/about" },
+  { label: "Testimonios", href: "/testimonials" },
+  { label: "Contacto", href: "/contact" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+  <div class="container-page">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2 font-semibold text-slate-900">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 ring-1 ring-brand-100">
+          <!-- Placeholder icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" class="text-brand-600">
+            <path fill="currentColor" d="M11 2h2v9h9v2h-9v9h-2v-9H2v-2h9z"/>
+          </svg>
+        </span>
+        <span>NurseCare</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Navegación principal">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-slate-700 hover:text-slate-900"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-brand-700"
+        >
+          Consulta Gratis
+        </a>
+      </nav>
+
+      <!-- Mobile nav -->
+      <details class="md:hidden">
+        <summary
+          class="cursor-pointer list-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          aria-label="Abrir menú"
+        >
+          Menú
+        </summary>
+        <div class="absolute left-0 right-0 top-16 border-b border-slate-200 bg-white">
+          <div class="container-page py-4">
+            <nav class="flex flex-col gap-3" aria-label="Navegación móvil">
+              {nav.map((item) => (
+                <a href={item.href} class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href="/contact"
+                class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+              >
+                Consulta Gratis
+              </a>
+            </nav>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
