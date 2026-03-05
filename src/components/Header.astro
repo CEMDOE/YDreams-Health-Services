@@ -1,4 +1,5 @@
 ---
+const pathname = Astro.url.pathname;
 const nav = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/services" },
@@ -6,63 +7,74 @@ const nav = [
   { label: "Testimonios", href: "/testimonials" },
   { label: "Contacto", href: "/contact" },
 ];
+
+const isActive = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href);
 ---
 
-<header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
   <div class="container-page">
     <div class="flex h-16 items-center justify-between gap-4">
-      <a href="/" class="flex items-center gap-2 font-semibold text-slate-900">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 ring-1 ring-brand-100">
-          <!-- Placeholder icon -->
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" class="text-brand-600">
-            <path fill="currentColor" d="M11 2h2v9h9v2h-9v9h-2v-9H2v-2h9z"/>
-          </svg>
+      <a href="/" class="flex items-center gap-3 font-semibold text-slate-900">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 ring-1 ring-brand-100">
+          <img src="/images/logo.png" alt="YDreams Health Services" class="h-8 w-8 rounded-lg object-cover" />
         </span>
-        <span>NurseCare</span>
+        <span class="text-sm sm:text-base">YDreams Health Services</span>
       </a>
 
-      <!-- Desktop nav -->
-      <nav class="hidden items-center gap-6 md:flex" aria-label="Navegación principal">
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Navegacion principal">
         {nav.map((item) => (
           <a
             href={item.href}
-            class="text-sm font-medium text-slate-700 hover:text-slate-900"
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class:list={[
+              "rounded-lg px-3 py-2 text-sm font-medium transition",
+              isActive(item.href)
+                ? "bg-brand-50 text-brand-800"
+                : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
+            ]}
           >
             {item.label}
           </a>
         ))}
         <a
           href="/contact"
-          class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-brand-700"
+          class="ml-3 rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700"
         >
-          Consulta Gratis
+          Solicitar consulta
         </a>
       </nav>
 
-      <!-- Mobile nav -->
-      <details class="md:hidden">
+      <details class="relative md:hidden">
         <summary
           class="cursor-pointer list-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          aria-label="Abrir menú"
+          aria-label="Abrir menu"
         >
-          Menú
+          Menu
         </summary>
-        <div class="absolute left-0 right-0 top-16 border-b border-slate-200 bg-white">
-          <div class="container-page py-4">
-            <nav class="flex flex-col gap-3" aria-label="Navegación móvil">
-              {nav.map((item) => (
-                <a href={item.href} class="rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
-                  {item.label}
-                </a>
-              ))}
+        <div class="absolute right-0 top-14 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
+          <nav class="flex flex-col gap-1" aria-label="Navegacion movil">
+            {nav.map((item) => (
               <a
-                href="/contact"
-                class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                class:list={[
+                  "rounded-lg px-3 py-2 text-sm font-medium transition",
+                  isActive(item.href)
+                    ? "bg-brand-50 text-brand-800"
+                    : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
+                ]}
               >
-                Consulta Gratis
+                {item.label}
               </a>
-            </nav>
-          </div>
+            ))}
+            <a
+              href="/contact"
+              class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+            >
+              Solicitar consulta
+            </a>
+          </nav>
         </div>
       </details>
     </div>

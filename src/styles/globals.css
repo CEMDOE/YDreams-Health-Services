@@ -1,9 +1,18 @@
 @import "tailwindcss";
 
-
-/* Opcional: suavidad general */
 :root {
   color-scheme: light;
+  --surface-page: #f4f8fc;
+  --surface-card: #ffffff;
+  --surface-muted: #ecfdfb;
+  --text-strong: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --border-subtle: #dbe4ef;
+  --brand-primary: #1f67d1;
+  --brand-primary-strong: #1b55aa;
+  --brand-accent: #11746d;
+  --focus-ring: #2563eb;
 }
 
 html {
@@ -11,19 +20,40 @@ html {
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 antialiased;
+  margin: 0;
+  background: radial-gradient(circle at top right, #e9f5ff 0%, var(--surface-page) 42%, #f8fbff 100%);
+  color: var(--text-body);
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
 }
 
-/* Contenedor consistente */
 .container-page {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
 }
 
-/* Enlaces accesibles */
+.section-spacing {
+  @apply py-14 sm:py-16;
+}
+
+.surface-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.text-strong {
+  color: var(--text-strong);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-select:focus-visible {
-  @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white;
+select:focus-visible,
+summary:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--focus-ring);
 }

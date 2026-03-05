@@ -1,101 +1,102 @@
 ---
-import '../styles/globals.css';
 import Layout from "../layouts/Layout.astro";
 import CTASection from "../components/CTASection.astro";
 
 const services = [
   {
-    title: "Cuidado General de Enfermería",
+    title: "Cuidado General de Enfermeria",
     image: "/images/hero.jpg",
-    description: [
-      "Atención integral en casa para pacientes que requieren apoyo continuo o por periodos definidos.",
-      "Incluye evaluación inicial, ejecución del plan de cuidado y coordinación con familia y médico tratante.",
-    ],
-    bullets: ["Higiene y confort", "Control de medicación indicada", "Prevención de complicaciones", "Registro y seguimiento"],
+    summary: "Atencion integral para pacientes que requieren acompanamiento continuo o temporal en casa.",
+    description:
+      "Incluye evaluacion inicial, ejecucion del plan de cuidado y comunicacion frecuente con familiares y medico tratante.",
+    bullets: ["Higiene y confort", "Control de medicacion indicada", "Prevencion de complicaciones", "Registro y seguimiento"],
   },
   {
-    title: "Administración de Medicamentos",
+    title: "Administracion de Medicamentos",
     image: "/images/hero.jpg",
-    description: [
-      "Aplicación segura de medicación según prescripción: oral, tópica, inyectable (si corresponde).",
-      "Verificación de dosis, tiempos y monitoreo de reacciones adversas.",
-    ],
-    bullets: ["Checklist de seguridad", "Educación al paciente", "Registro de dosis y horarios", "Alertas a familia/médico"],
+    summary: "Aplicacion segura de medicacion segun prescripcion, con verificaciones en cada etapa.",
+    description:
+      "Gestionamos dosis y horarios, vigilamos posibles reacciones y documentamos cada intervencion para continuidad segura.",
+    bullets: ["Checklist de seguridad", "Educacion al paciente", "Registro de dosis y horarios", "Alertas a familia y medico"],
   },
   {
     title: "Cuidado Postoperatorio",
     image: "/images/hero.jpg",
-    description: [
-      "Acompañamiento en la recuperación para reducir riesgos y mejorar la comodidad.",
-      "Vigilancia de signos de alarma, curaciones y orientación en movilidad y cuidados.",
-    ],
-    bullets: ["Curaciones y control de herida", "Manejo del dolor (según indicación)", "Prevención de infección", "Seguimiento diario"],
+    summary: "Soporte profesional durante la recuperacion para disminuir riesgos y acelerar progreso.",
+    description:
+      "Monitoreamos signos de alerta, realizamos curaciones y orientamos sobre movilidad y autocuidado en casa.",
+    bullets: ["Control de herida", "Manejo del dolor indicado", "Prevencion de infeccion", "Seguimiento diario"],
   },
   {
     title: "Fisioterapia a Domicilio",
     image: "/images/hero.jpg",
-    description: [
-      "Plan de rehabilitación funcional en casa para recuperar fuerza, movilidad y autonomía.",
-      "Ejercicios guiados y educación para continuidad segura.",
-    ],
-    bullets: ["Rutina personalizada", "Progresión por objetivos", "Entrenamiento de marcha", "Prevención de recaídas"],
+    summary: "Rehabilitacion funcional personalizada para recuperar autonomia con seguridad.",
+    description:
+      "Trabajamos rutinas graduales con objetivos medibles para fortalecer movilidad, marcha y estabilidad.",
+    bullets: ["Rutina personalizada", "Progresion por objetivos", "Entrenamiento de marcha", "Prevencion de recaidas"],
   },
   {
     title: "Monitoreo de Signos Vitales",
     image: "/images/hero.jpg",
-    description: [
-      "Control periódico de presión arterial, frecuencia cardiaca, saturación, glucosa (si aplica) y temperatura.",
-      "Reporte claro para tomar decisiones oportunas.",
-    ],
-    bullets: ["Toma y registro", "Tendencias y alertas", "Comunicación con la familia", "Recomendaciones básicas"],
+    summary: "Control periodico de indicadores clave para deteccion temprana y decisiones oportunas.",
+    description:
+      "Registramos tendencias de presion, frecuencia cardiaca, saturacion y otros parametros segun el caso.",
+    bullets: ["Toma y registro", "Lectura de tendencias", "Comunicacion con familia", "Recomendaciones basicas"],
   },
   {
-    title: "Educación para Pacientes y Familiares",
+    title: "Educacion para Pacientes y Familiares",
     image: "/images/hero.jpg",
-    description: [
-      "Entrenamiento práctico para cuidados diarios, prevención y señales de alarma.",
-      "Ideal para familias que desean acompañar mejor el proceso.",
-    ],
-    bullets: ["Guías simples y claras", "Demostración y práctica", "Plan de cuidados en casa", "Preguntas y seguimiento"],
+    summary: "Formacion practica para cuidar mejor al paciente entre visitas de seguimiento.",
+    description:
+      "Ensenamos rutinas, senales de alerta y medidas preventivas para fortalecer la autonomia del hogar.",
+    bullets: ["Guias claras", "Demostracion y practica", "Plan de cuidados", "Espacio para dudas"],
   },
-];
+] as const;
 ---
 
-<Layout title="Servicios | NurseCare" description="Servicios especializados de enfermería a domicilio.">
-  <!-- HERO -->
-  <section class="container-page py-14 sm:py-16">
-    <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
-      <h1 class="text-3xl font-semibold text-slate-900">Nuestros Servicios Especializados</h1>
-      <p class="mt-3 max-w-2xl text-sm text-slate-600">
-        Diseñados para brindar seguridad clínica, trato humano y tranquilidad a tu familia.
-      </p>
+<Layout
+  title="Servicios | YDreams Health Services"
+  description="Servicios de enfermeria a domicilio con enfoque clinico, comunicacion clara y acompanamiento humano."
+>
+  <section class="section-spacing">
+    <div class="container-page">
+      <div class="surface-card rounded-2xl p-8 sm:p-10">
+        <h1 class="text-3xl font-semibold text-slate-900">Servicios de enfermeria para cada etapa del cuidado</h1>
+        <p class="mt-3 max-w-3xl text-sm text-slate-600">
+          Disenamos intervenciones domiciliarias claras, medibles y centradas en seguridad para que tu familia tome decisiones con confianza.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- LISTADO -->
-  <section class="container-page pb-16">
-    <div class="space-y-8">
-      {services.map((s) => (
-        <article class="grid gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-5 md:items-start md:p-8">
+  <section class="pb-16">
+    <div class="container-page space-y-8">
+      {services.map((s, index) => (
+        <article
+          class:list={[
+            "grid gap-6 rounded-2xl border border-slate-200 p-6 shadow-soft md:grid-cols-5 md:items-center md:p-8",
+            index % 2 === 0 ? "bg-white" : "bg-mint-50/70",
+          ]}
+        >
           <div class="md:col-span-2">
             <img
               src={s.image}
               alt={`Imagen representativa de ${s.title}`}
-              class="h-48 w-full rounded-2xl object-cover ring-1 ring-slate-200 md:h-56"
+              class="h-52 w-full rounded-2xl object-cover ring-1 ring-slate-200 md:h-60"
               loading="lazy"
             />
           </div>
 
           <div class="md:col-span-3">
-            <h2 class="text-xl font-semibold text-slate-900">{s.title}</h2>
-            {s.description.map((p) => (
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">{p}</p>
-            ))}
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">Servicio especializado</p>
+            <h2 class="mt-2 text-xl font-semibold text-slate-900">{s.title}</h2>
+            <p class="mt-3 text-sm font-medium text-slate-700">{s.summary}</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">{s.description}</p>
 
             <ul class="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
               {s.bullets.map((b) => (
                 <li class="flex gap-2">
-                  <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-md bg-mint-50 ring-1 ring-mint-100">
+                  <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-md bg-mint-100 ring-1 ring-mint-200">
                     <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" class="text-mint-700">
                       <path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.4-1.4z"/>
                     </svg>
@@ -107,7 +108,7 @@ const services = [
 
             <div class="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href="/contact" class="inline-flex items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700">
-                Solicitar este Servicio
+                Solicitar este servicio
               </a>
               <a href="/contact" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50">
                 Consultar disponibilidad
@@ -119,5 +120,11 @@ const services = [
     </div>
   </section>
 
-  <CTASection />
+  <CTASection
+    title="Necesitas orientacion para elegir el servicio adecuado?"
+    subtitle="Cuentanos la situacion del paciente y te ayudamos a definir el plan de atencion inicial."
+    ctaLabel="Hablar con el equipo"
+    href="/contact"
+    variant="subtle"
+  />
 </Layout>

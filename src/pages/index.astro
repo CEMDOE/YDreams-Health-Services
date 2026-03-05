@@ -1,6 +1,4 @@
 ---
-import "../styles/globals.css";
-
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
@@ -8,49 +6,50 @@ import CTASection from "../components/CTASection.astro";
 
 const services = [
   {
-    title: "Administración de Medicamentos",
-    description: "Aseguramos dosis, horarios y seguimiento con máxima seguridad.",
+    title: "Administracion de Medicamentos",
+    description: "Control de dosis, horarios y observacion clinica para reducir riesgos.",
     icon: "syringe",
+    eyebrow: "Seguridad diaria",
   },
   {
     title: "Cuidado Postoperatorio",
-    description: "Recuperación supervisada en casa para mayor tranquilidad.",
+    description: "Acompanamiento en recuperacion con seguimiento continuo y educacion familiar.",
     icon: "heart",
+    eyebrow: "Recuperacion guiada",
   },
   {
     title: "Monitoreo de Signos Vitales",
-    description: "Control periódico y reporte claro para la familia y médico.",
+    description: "Registro claro de indicadores para decisiones oportunas con tu equipo medico.",
     icon: "clock",
+    eyebrow: "Control preventivo",
   },
   {
-    title: "Cuidado General de Enfermería",
-    description: "Atención integral según indicación médica y necesidades diarias.",
+    title: "Cuidado General de Enfermeria",
+    description: "Atencion integral en casa basada en evaluacion y plan de cuidados personalizado.",
     icon: "cross",
+    eyebrow: "Atencion continua",
   },
 ] as const;
 
 const testimonials = [
   {
-    name: "María R.",
+    name: "Maria R.",
     role: "Familiar de paciente",
-    quote:
-      "La enfermera fue muy humana y cuidadosa. Nos dio paz y claridad en todo momento.",
+    quote: "Nos explicaron cada paso con calma y sentimos confianza desde el primer dia.",
     image: "/images/patient-1.jpg",
     rating: 5,
   },
   {
     name: "Carlos P.",
     role: "Paciente",
-    quote:
-      "Excelente trato y puntualidad. Me ayudaron con el postoperatorio sin complicaciones.",
+    quote: "Puntualidad, trato humano y seguimiento real durante todo mi postoperatorio.",
     image: "/images/patient-2.jpg",
     rating: 5,
   },
   {
-    name: "Lucía G.",
+    name: "Lucia G.",
     role: "Paciente",
-    quote:
-      "Se nota la experiencia. Explican todo con paciencia y profesionalismo.",
+    quote: "El equipo transmite profesionalismo y claridad. Muy recomendado para cuidado en casa.",
     image: "/images/patient-3.jpg",
     rating: 5,
   },
@@ -58,170 +57,91 @@ const testimonials = [
 ---
 
 <Layout
-  title="NurseCare | Enfermería a Domicilio"
-  description="Cuidado de enfermería profesional en la comodidad de tu hogar."
+  title="YDreams Health Services | Enfermeria a Domicilio"
+  description="Cuidado de enfermeria profesional en casa con protocolos clinicos, empatia y respuesta oportuna."
 >
-
-<!-- HERO -->
-<section class="relative overflow-hidden">
-
-  <div class="absolute inset-0">
-    <img
-      src="/images/hero.jpg"
-      alt="Enfermera atendiendo a un paciente en casa"
-      class="h-full w-full object-cover"
-      loading="eager"
-    />
-    <div class="absolute inset-0 bg-brand-900/60"></div>
-  </div>
-
-  <div class="container-page relative py-24 sm:py-32">
-
-    <div class="max-w-2xl text-white">
-
-      <h1 class="text-3xl font-semibold leading-tight sm:text-5xl">
-        Cuidado de Enfermería Profesional en la Comodidad de tu Hogar
-      </h1>
-
-      <p class="mt-4 text-lg text-white/90">
-        Servicios personalizados, atención compasiva y tranquilidad para tu familia.
-      </p>
-
-      <!-- CTA PRINCIPALES -->
-      <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-
-        <!-- CTA PRINCIPAL -->
-        <a
-          href="/contact"
-          class="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:from-brand-600 hover:to-brand-700 hover:shadow-xl"
-        >
-          Solicita una Consulta Gratuita
-
-          <svg
-            class="h-4 w-4 transition group-hover:translate-x-1"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10.293 15.707a1 1 0 010-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"
-            />
-          </svg>
-
-        </a>
-
-        <!-- CTA SECUNDARIO -->
-        <a
-          href="/services"
-          class="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition hover:bg-white/20"
-        >
-          Ver Servicios
-        </a>
-
-      </div>
-
-      <!-- INDICADORES DE CONFIANZA -->
-      <div class="mt-6 flex flex-wrap gap-6 text-sm text-white/80">
-
-        <span>✓ Enfermeros certificados</span>
-
-        <span>✓ Atención domiciliaria</span>
-
-        <span>✓ Disponible 24/7</span>
-
-      </div>
-
-      <p class="mt-3 text-sm text-white/80">
-        Consulta inicial sin compromiso · Atención en menos de 24 horas
-      </p>
-
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/hero.jpg"
+        alt="Enfermera atendiendo a un paciente en casa"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-brand-900/65"></div>
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- SERVICIOS -->
-<section class="bg-mint-50 py-16">
-
-  <div class="container-page">
-
-    <div class="flex items-end justify-between">
-
-      <div>
-        <h2 class="text-2xl font-semibold text-brand-700">
-          Nuestros Servicios Clave
-        </h2>
-
-        <p class="mt-2 text-sm text-slate-600">
-          Atención segura, humana y enfocada en resultados.
+    <div class="container-page relative py-24 sm:py-28">
+      <div class="max-w-2xl text-white">
+        <p class="text-sm font-semibold uppercase tracking-wider text-white/80">YDreams Health Services</p>
+        <h1 class="mt-3 text-3xl font-semibold leading-tight sm:text-5xl">
+          Cuidado de enfermeria profesional en la comodidad de tu hogar
+        </h1>
+        <p class="mt-5 text-lg text-white/90">
+          Acompanamos a pacientes y familias con atencion clinica segura, trato humano y respuesta en menos de 24 horas.
         </p>
+
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Solicitar consulta
+          </a>
+          <a
+            href="/services"
+            class="inline-flex items-center justify-center rounded-xl border border-white/40 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition hover:bg-white/20"
+          >
+            Ver servicios
+          </a>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-6 text-sm text-white/85">
+          <span>Profesionales certificados</span>
+          <span>Atencion domiciliaria</span>
+          <span>Disponibilidad 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing">
+    <div class="container-page">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-brand-800">Servicios clave para cuidado en casa</h2>
+          <p class="mt-2 text-sm text-slate-600">Intervenciones frecuentes para estabilidad, recuperacion y tranquilidad familiar.</p>
+        </div>
+        <a href="/services" class="text-sm font-semibold text-brand-700 hover:text-brand-800">Ver portafolio completo</a>
       </div>
 
-      <a
-        href="/services"
-        class="hidden text-sm font-semibold text-brand-600 hover:text-brand-700 sm:inline-flex"
-      >
-        Ver todo →
-      </a>
-
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((s) => (
+          <ServiceCard title={s.title} description={s.description} icon={s.icon} eyebrow={s.eyebrow} />
+        ))}
+      </div>
     </div>
+  </section>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <section class="pb-16">
+    <div class="container-page">
+      <div class="mb-8">
+        <h2 class="text-2xl font-semibold text-brand-800">Lo que dicen nuestros pacientes</h2>
+        <p class="mt-2 text-sm text-slate-600">Experiencias reales sobre acompanamiento, seguridad y calidad humana.</p>
+      </div>
 
-      {services.map((s) => (
-        <ServiceCard
-          title={s.title}
-          description={s.description}
-          icon={s.icon}
-        />
-      ))}
-
+      <div class="grid gap-6 md:grid-cols-3">
+        {testimonials.map((t) => (
+          <TestimonialCard {...t} />
+        ))}
+      </div>
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-
-<!-- TESTIMONIOS -->
-<section class="py-16">
-
-  <div class="container-page">
-
-    <div class="mb-10">
-
-      <h2 class="text-2xl font-semibold text-brand-700">
-        Lo Que Dicen Nuestros Pacientes
-      </h2>
-
-      <p class="mt-2 text-sm text-slate-600">
-        Historias reales, cuidado real.
-      </p>
-
-    </div>
-
-    <div class="grid gap-6 md:grid-cols-3">
-
-      {testimonials.map((t) => (
-        <TestimonialCard {...t} />
-      ))}
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CTA FINAL -->
-<CTASection
-  title="¿Necesitas apoyo de enfermería en casa?"
-  subtitle="Cuéntanos tu caso y te ayudamos a elegir el servicio adecuado."
-  ctaLabel="Contáctanos Hoy"
-  href="/contact"
-/>
-
+  <CTASection
+    title="Coordina hoy la atencion de enfermeria que tu familia necesita"
+    subtitle="Completa el formulario y te contactaremos para orientar el servicio ideal segun tu caso."
+    ctaLabel="Ir a contacto"
+    href="/contact"
+  />
 </Layout>

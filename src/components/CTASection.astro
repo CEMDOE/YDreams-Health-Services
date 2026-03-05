@@ -1,22 +1,47 @@
 ---
+type Variant = "primary" | "subtle";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  href?: string;
+  variant?: Variant;
+}
+
 const {
-  title = "¿Listo para recibir atención profesional en casa?",
-  subtitle = "Cuéntanos tu caso y te orientamos sin costo.",
-  ctaLabel = "Contáctanos Hoy",
+  title = "Necesitas apoyo de enfermeria en casa?",
+  subtitle = "Comparte tu caso y coordinamos la mejor opcion para tu familia.",
+  ctaLabel = "Ir a contacto",
   href = "/contact",
-} = Astro.props;
+  variant = "primary",
+} = Astro.props as Props;
+
+const isSubtle = variant === "subtle";
 ---
 
-<section class="container-page py-10">
-  <div class="rounded-2xl bg-gradient-to-r from-brand-600 to-mint-600 p-8 shadow-soft sm:p-10">
+<section class="container-page pb-16">
+  <div
+    class:list={[
+      "rounded-2xl p-8 sm:p-10",
+      isSubtle
+        ? "surface-card bg-white"
+        : "bg-gradient-to-r from-brand-700 to-mint-700 shadow-soft",
+    ]}
+  >
     <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
       <div class="max-w-2xl">
-        <h2 class="text-xl font-semibold text-white sm:text-2xl">{title}</h2>
-        <p class="mt-2 text-sm text-white/90">{subtitle}</p>
+        <h2 class:list={["text-xl font-semibold sm:text-2xl", isSubtle ? "text-slate-900" : "text-white"]}>{title}</h2>
+        <p class:list={["mt-2 text-sm", isSubtle ? "text-slate-600" : "text-white/90"]}>{subtitle}</p>
       </div>
       <a
         href={href}
-        class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-soft hover:bg-slate-50"
+        class:list={[
+          "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition",
+          isSubtle
+            ? "bg-brand-600 text-white hover:bg-brand-700"
+            : "bg-white text-slate-900 hover:bg-slate-100",
+        ]}
       >
         {ctaLabel}
       </a>

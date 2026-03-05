@@ -5,64 +5,49 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const {
-  title = "NurseCare | Enfermería a Domicilio",
-  description = "Cuidado de enfermería profesional en la comodidad de tu hogar.",
+  title = "YDreams Health Services | Enfermeria a Domicilio",
+  description = "Atencion de enfermeria profesional en casa, con calidez humana y seguridad clinica.",
   image = "/images/hero.jpg",
-  url = "https://nursecare.com",
+  url = "https://ydreamshealthservices.com",
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
-<head>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
 
-<meta charset="UTF-8" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
 
-<title>{title}</title>
+  <body class="text-slate-900 antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2"
+    >
+      Saltar al contenido
+    </a>
 
-<meta name="description" content={description} />
+    <Header />
 
-<!-- OpenGraph -->
+    <main id="contenido" class="min-h-screen">
+      <slot />
+    </main>
 
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
-<meta property="og:url" content={url} />
-<meta property="og:type" content="website" />
-
-<!-- Twitter -->
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image} />
-
-<link rel="icon" href="/favicon.svg" />
-
-</head>
-
-<body class="bg-slate-50 text-slate-900 antialiased">
-
-<a
-href="#contenido"
-class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-soft"
->
-Saltar al contenido
-</a>
-
-<Header />
-
-<main id="contenido" class="min-h-screen">
-
-<slot />
-
-</main>
-
-<Footer />
-
-</body>
-
+    <Footer />
+  </body>
 </html>

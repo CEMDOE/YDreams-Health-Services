@@ -1,5 +1,4 @@
 ---
-import '../styles/globals.css';
 import Layout from "../layouts/Layout.astro";
 import CTASection from "../components/CTASection.astro";
 
@@ -7,56 +6,60 @@ const team = [
   {
     name: "Ana Torres",
     title: "Enfermera Jefe | Cuidados Domiciliarios",
-    bio: "Especialista en cuidado integral, educación al paciente y coordinación familiar.",
+    bio: "Coordina planes clinicos personalizados y seguimiento familiar basado en protocolos.",
     image: "/images/nurse-team.jpg",
   },
   {
-    name: "Luis Ramírez",
+    name: "Luis Ramirez",
     title: "Enfermero | Postoperatorio y Curaciones",
-    bio: "Experiencia en recuperación postquirúrgica, control de signos y prevención de complicaciones.",
+    bio: "Especialista en recuperacion postquirurgica, curaciones y deteccion temprana de alertas.",
     image: "/images/nurse-team.jpg",
   },
   {
     name: "Carla Vega",
-    title: "Fisioterapeuta | Rehabilitación Funcional",
-    bio: "Planes personalizados para recuperar movilidad, fuerza y autonomía en casa.",
+    title: "Fisioterapeuta | Rehabilitacion Funcional",
+    bio: "Disena rutinas de movilidad seguras para recuperar autonomia de forma progresiva.",
     image: "/images/nurse-team.jpg",
   },
-];
+] as const;
+
+const pillars = [
+  "Protocolos clinicos claros",
+  "Comunicacion transparente",
+  "Trato humano y cercano",
+] as const;
 ---
 
-<Layout title="Sobre Nosotros | NurseCare" description="Conoce a NurseCare: misión, valores y equipo.">
-  <!-- HERO -->
-  <section class="container-page py-14 sm:py-16">
-    <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft sm:p-10">
-      <h1 class="text-3xl font-semibold text-slate-900">
-        Conoce a NurseCare: Tu Aliado en Salud en Casa
-      </h1>
-      <p class="mt-3 max-w-2xl text-sm text-slate-600">
-        Cuidamos con profesionalismo, empatía y procesos claros para que tú y tu familia se sientan seguros.
-      </p>
+<Layout
+  title="Sobre Nosotros | YDreams Health Services"
+  description="Conoce el enfoque de YDreams Health Services: seguridad clinica, empatia y acompanamiento domiciliario."
+>
+  <section class="section-spacing">
+    <div class="container-page">
+      <div class="surface-card rounded-2xl p-8 sm:p-10">
+        <h1 class="text-3xl font-semibold text-slate-900">Un equipo de salud en casa, con metodo y confianza</h1>
+        <p class="mt-3 max-w-3xl text-sm text-slate-600">
+          En YDreams Health Services acompanamos procesos de cuidado domiciliario con estructura clinica, empatia y comunicacion constante con cada familia.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- MISIÓN / VISIÓN -->
-  <section class="container-page pb-16">
-    <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+  <section class="pb-16">
+    <div class="container-page grid gap-8 lg:grid-cols-2 lg:items-center">
       <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
-        <h2 class="text-xl font-semibold text-slate-900">Nuestra Misión y Visión</h2>
+        <h2 class="text-xl font-semibold text-slate-900">Mision y forma de trabajo</h2>
         <p class="mt-3 text-sm leading-relaxed text-slate-600">
-          Nuestra misión es brindar cuidado de enfermería a domicilio con estándares clínicos, calidez humana
-          y una comunicación transparente con la familia.
+          Nuestra mision es ofrecer cuidados de enfermeria a domicilio que combinen seguridad, cercania y decisiones basadas en evaluacion continua.
         </p>
         <p class="mt-3 text-sm leading-relaxed text-slate-600">
-          Nuestra visión es ser el servicio de referencia en atención domiciliaria, integrando buenas prácticas,
-          mejora continua y un enfoque centrado en la persona.
+          Trabajamos con un flujo claro: valoracion inicial, plan de cuidado, seguimiento documentado y comunicacion con paciente y familiares.
         </p>
 
         <div class="mt-5 grid gap-3 sm:grid-cols-3">
-          {["Empatía", "Seguridad", "Excelencia"].map((v) => (
+          {pillars.map((pillar) => (
             <div class="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
-              <p class="text-sm font-semibold text-slate-900">{v}</p>
-              <p class="mt-1 text-xs text-slate-600">Valor principal</p>
+              <p class="text-sm font-semibold text-slate-900">{pillar}</p>
             </div>
           ))}
         </div>
@@ -65,7 +68,7 @@ const team = [
       <div>
         <img
           src="/images/nurse-team.jpg"
-          alt="Equipo de enfermería"
+          alt="Equipo de enfermeria de YDreams Health Services"
           class="h-80 w-full rounded-2xl object-cover shadow-soft ring-1 ring-slate-200"
           loading="lazy"
         />
@@ -73,41 +76,35 @@ const team = [
     </div>
   </section>
 
-  <!-- EQUIPO -->
-  <section class="container-page pb-16">
-    <h2 class="text-2xl font-semibold text-slate-900">Nuestro Equipo</h2>
-    <p class="mt-2 max-w-2xl text-sm text-slate-600">
-      Profesionales con experiencia y una forma de trabajar centrada en el cuidado y la confianza.
-    </p>
-
-    <div class="mt-8 grid gap-6 md:grid-cols-3">
-      {team.map((m) => (
-        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-          <img
-            src={m.image}
-            alt={`Foto de ${m.name}`}
-            class="h-40 w-full rounded-2xl object-cover ring-1 ring-slate-200"
-            loading="lazy"
-          />
-          <h3 class="mt-4 text-base font-semibold text-slate-900">{m.name}</h3>
-          <p class="mt-1 text-xs font-medium text-brand-700">{m.title}</p>
-          <p class="mt-3 text-sm text-slate-600">{m.bio}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <!-- HISTORIA (opcional) -->
-  <section class="container-page pb-16">
-    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8">
-      <h2 class="text-xl font-semibold text-slate-900">Nuestra Historia</h2>
-      <p class="mt-3 text-sm leading-relaxed text-slate-600">
-        NurseCare nació para llevar atención profesional al hogar, con procesos claros y una experiencia humana.
-        Empezamos atendiendo a familias que necesitaban apoyo postoperatorio y seguimiento continuo, y hoy
-        brindamos un portafolio completo de cuidados domiciliarios.
+  <section class="pb-16">
+    <div class="container-page">
+      <h2 class="text-2xl font-semibold text-slate-900">Equipo profesional</h2>
+      <p class="mt-2 max-w-2xl text-sm text-slate-600">
+        Profesionales con experiencia en cuidado domiciliario, recuperacion y educacion para pacientes y familiares.
       </p>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {team.map((member) => (
+          <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <img
+              src={member.image}
+              alt={`Foto de ${member.name}`}
+              class="h-40 w-full rounded-2xl object-cover ring-1 ring-slate-200"
+              loading="lazy"
+            />
+            <h3 class="mt-4 text-base font-semibold text-slate-900">{member.name}</h3>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wide text-brand-700">{member.title}</p>
+            <p class="mt-3 text-sm text-slate-600">{member.bio}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
-  <CTASection />
+  <CTASection
+    title="Agenda una valoracion inicial con nuestro equipo"
+    subtitle="Te orientamos para definir el servicio adecuado y el plan de acompanamiento en casa."
+    ctaLabel="Solicitar valoracion"
+    href="/contact"
+  />
 </Layout>
